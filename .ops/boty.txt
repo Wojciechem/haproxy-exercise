@@ -1,1 +1,3 @@
-BLEXBot
+SomeBot
+Otherbot
+LOLBot
