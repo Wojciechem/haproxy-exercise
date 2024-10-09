@@ -1,0 +1,23 @@
+name: lb
+
+services:
+  haproxy:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "80:80"
+    expose:
+      - "80:80"
+  k8s0:
+    image: nginx
+    environment:
+      - SRV_NAME=k8s0
+    volumes:
+      - .ops/k8s0.conf:/etc/nginx/templates/default.conf.template:ro
+  k8s1:
+    image: nginx
+    environment:
+      - SRV_NAME=k8s1
+    volumes:
+      - .ops/k8s1.conf:/etc/nginx/templates/default.conf.template:ro
