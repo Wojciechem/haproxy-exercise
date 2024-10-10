@@ -14,10 +14,12 @@ services:
     environment:
       - SRV_NAME=k8s0
     volumes:
-      - .ops/k8s0.conf:/etc/nginx/templates/default.conf.template:ro
+      - .ops/shared.conf:/etc/nginx/templates/default.conf.template:ro
+      - .ops/k8s0.conf:/etc/nginx/templates/k8s0.conf.template:ro
   k8s1:
     image: nginx
     environment:
       - SRV_NAME=k8s1
     volumes:
-      - .ops/k8s1.conf:/etc/nginx/templates/default.conf.template:ro
+      - .ops/shared.conf:/etc/nginx/templates/default.conf.template:ro
+      - .ops/k8s1.conf:/etc/nginx/templates/k8s1.conf.template:ro
